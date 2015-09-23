@@ -69,6 +69,15 @@ static NSString * AFPercentEscapedQueryStringValueFromStringWithEncoding(NSStrin
     return self;
 }
 
+- (instancetype)init
+{
+    self = [self initWithField:nil value:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
+    return self;
+}
+
 - (NSString *)URLEncodedStringValueWithEncoding:(NSStringEncoding)stringEncoding {
     if (!self.value || [self.value isEqual:[NSNull null]]) {
         return RKAFPercentEscapedQueryStringKeyFromStringWithEncoding([self.field description], stringEncoding);

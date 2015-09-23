@@ -65,6 +65,15 @@
     return self;
 }
 
+- (instancetype)init
+{
+    self = [self initWithMIMEType:nil serializationClass:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
+    return self;
+}
+
 - (BOOL)matchesMIMEType:(NSString *)MIMEType
 {
     return RKMIMETypeInSet(MIMEType, [NSSet setWithObject:self.MIMETypeStringOrRegularExpression]);
