@@ -85,6 +85,15 @@ static NSUInteger RKPaginatorDefaultPerPage = 25;
     return self;
 }
 
+- (instancetype)init
+{
+    self = [self initWithRequest:nil paginationMapping:nil responseDescriptors:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
+    return self;
+}
+
 - (void)dealloc
 {
     [self.objectRequestOperation cancel];

@@ -182,6 +182,15 @@ extern NSString *RKStringDescribingRequestMethod(RKRequestMethod method);
     return self;
 }
 
+- (instancetype)init
+{
+    self = [self initWithMapping:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
+    return self;
+}
+
 - (NSSet *)mappings
 {
     return self.mutableMappings;
@@ -369,6 +378,15 @@ static NSString *RKMIMETypeFromAFHTTPClientParameterEncoding(AFHTTPClientParamet
         }
     }
 
+    return self;
+}
+
+- (instancetype)init
+{
+    self = [self initWithHTTPClient:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
     return self;
 }
 

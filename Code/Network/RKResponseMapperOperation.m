@@ -198,6 +198,16 @@ static NSMutableDictionary *RKRegisteredResponseMapperOperationDataSourceClasses
     return self;
 }
 
+- (instancetype)init
+{
+    self = [self initWithRequest:nil response:nil data:nil responseDescriptors:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
+                                 userInfo:nil];
+    return self;
+}
+
+
 - (id)parseResponseData:(NSError **)error
 {
     NSString *MIMEType = [self.response MIMEType];
