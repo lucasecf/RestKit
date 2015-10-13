@@ -97,15 +97,6 @@ static NSString *RKFailureReasonErrorStringForMappingNotFoundError(id representa
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithRepresentation:nil mappingsDictionary:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (NSDictionary *)mappingInfo
 {
     return self.mutableMappingInfo;

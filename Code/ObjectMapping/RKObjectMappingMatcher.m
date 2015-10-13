@@ -133,15 +133,6 @@
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithKeyPath:nil expectedValue:nil objectMapping:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (BOOL)matches:(id)object
 {
     id value = [object valueForKeyPath:self.keyPath];
@@ -181,15 +172,6 @@
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithKeyPath:nil expectedClass: nil objectMapping:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (BOOL)matches:(id)object
 {
     id value = [object valueForKeyPath:self.keyPath];
@@ -223,15 +205,6 @@
         self.valueMap = valueToObjectMapping;
     }
     
-    return self;
-}
-
-- (instancetype)init
-{
-    self = [self initWithKeyPath:nil expectedValueMap:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
     return self;
 }
 
@@ -282,15 +255,6 @@
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithPredicate:nil objectMapping:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (BOOL)matches:(id)object
 {
     return [self.predicate evaluateWithObject:object];
@@ -322,15 +286,6 @@
         self.possibleMappings = mappings;
     }
     
-    return self;
-}
-
-- (instancetype)init
-{
-    self = [self initWithPossibleMappings:nil block:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
     return self;
 }
 

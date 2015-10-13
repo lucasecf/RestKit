@@ -173,15 +173,6 @@ static NSArray *RKInsertInMetadataList(NSArray *list, id metadata1, id metadata2
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithMappingSource:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (id)valueForKey:(NSString *)key
 {
     return [self.mappingSource metadataValueForKey:key];

@@ -96,15 +96,6 @@ static NSSet *RKSetOfManagedObjectIDsFromManagedObjectContextDidSaveNotification
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithObservedContext:nil mergeContext:nil];
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"-init is not a valid initializer for the class %@", NSStringFromClass([self class])]
-                                 userInfo:nil];
-    return self;
-}
-
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
